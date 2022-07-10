@@ -13,6 +13,20 @@
   }
 }
 
+.heading {
+  font-size: x-large;
+  padding: 2em;
+}
+
+.nav > ul {
+  display: flex;
+  list-style-type: none;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
