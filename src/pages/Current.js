@@ -4,7 +4,7 @@ function Current() {
 
     return(
         <div>
-            <h2>Current Programs / Workouts</h2>
+            <h3>Current Programs / Workouts</h3>
         </div>
     )
 }

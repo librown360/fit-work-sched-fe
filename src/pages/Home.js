@@ -2,15 +2,12 @@ import { Link } from 'react-router-dom'
 
 function Home() {
 
-    // let navigate = useNavigate()
-
-
     return (
         <div>
             <nav className='nav'>
-                <Link to='/create'>Create Program</Link>
-                <Link to='/current'>Current Program</Link>
-                <Link to='/program-schedules'>Completed Programs</Link>
+                <Link to='/create-program'>Create Program</Link>
+                <Link to='/current-program'>Current Program</Link>
+                <Link to='/completed-programs'>Completed Programs</Link>
             </nav>
         </div>
     )

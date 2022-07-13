@@ -48,10 +48,10 @@ function CompletedPrograms() {
     })
 
     return(
-        <>
+        <div>
             <h3>Completed Programs</h3>
             {formatPrograms}
-        </>
+        </div>
         
     )
 }

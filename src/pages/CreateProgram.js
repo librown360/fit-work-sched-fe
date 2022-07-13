@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -7,24 +8,38 @@ import DisablePastDates from '../components/DisablePastDates'
 
 function CreateProgram() {
 
+    const navigate = useNavigate()
+
     const [validated, setValidated] = useState(false)
-    const [weeks, setWeeks] = useState(0)
-    const [startDate, setStartDate] = useState(null)
-    const [endDate, setEndDate] = useState(null)
+    const [program, setProgram] = useState({
+        number_of_weeks: 0,
+        start_date: '',
+        end_date: '',
+        notes: '',
+        current: true,
+        complete: false
+    })
     
-    // create button events
-    const handleSubmit = (event) => {
-        const form = event.currentTarget
+    // create button event
+    async function handleSubmit(e) {
+        // form validation
+        const form = e.currentTarget
         if (form.checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-            console.log('not validated')
+            e.preventDefault()
+            e.stopPropagation()
         }
         setValidated(true)
-        console.log('validated')
+        // go to create workout page
+        navigate('../create-workout-schedule')
+        // form validation successful; update table
+        await fetch(`http://localhost:3001/program-schedules`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(program)
+        })      
     }
-
-
 
     return(
         <div>
@@ -35,10 +50,15 @@ function CreateProgram() {
                         <Form.Label>Number of weeks:</Form.Label>
                         <Form.Control 
                             required
+                            value={program.number_of_weeks}
+                            onChange={e => setProgram({ ...program, number_of_weeks: e.target.value })}
                             type='number'
                             min='1'
                             placeholder='Enter number of weeks:'
                         />
+                        <Form.Control.Feedback type='invalid'>
+                            Number of weeks must be greater than zero.
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
                 <Row className='mb-3'>
@@ -46,32 +66,47 @@ function CreateProgram() {
                         <Form.Label>Start Date:</Form.Label>
                         <Form.Control 
                             required
+                            value={program.start_date}
+                            onChange={e => setProgram({ ...program, start_date: e.target.value })}
                             type='date'
                             min={DisablePastDates()}
                             placeholder='Choose start date:'
                         />
+                        <Form.Control.Feedback type='invalid'>
+                            Please choose a start date.
+                        </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} controlId='formGridEndDate'>
                         <Form.Label>End Date:</Form.Label>
                         <Form.Control
                             required
+                            value={program.end_date}
+                            onChange={e => setProgram({ ...program, end_date: e.target.value })}
                             type='date'
                             min={DisablePastDates()}
                             placeholder='Choose end date:'
                         />
+                        <Form.Control.Feedback type='invalid'>
+                            Please choose an end date.
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
                 <Row className='mb-3'>
                     <Form.Group as={Col} controlId='formGridNotes'>
                         <Form.Label>Notes:</Form.Label>
-                        <Form.Control type='text' placeholder='Enter program notes as desired' />
+                        <Form.Control
+                            as='textarea'
+                            rows={4}
+                            value={program.notes}
+                            onChange={e => setProgram({ ...program, notes: e.target.value })}
+                            placeholder='Enter program notes as desired'
+                        />
                     </Form.Group>
                 </Row>
                 <Button variant='primary' type='submit'>
                     Create
                 </Button>
             </Form>
-            {/* <Outlet /> */}
         </div>
     )
 }
