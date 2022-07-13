@@ -1,27 +1,40 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// Components
-import Header from './components/Header'
-import Home from './components/Home'
-import Create from './components/Create'
-import Current from './components/Current'
-import Completed from './components/Completed'
+// Pages
+import Layout from './pages/Layout'
+import Home from './pages/Home'
+import NoMatch from './pages/NoMatch'
+import Create from './pages/Create'
+import Current from './pages/Current'
+import Completed from './pages/Completed'
+import CompletedPrograms from './pages/CompletedPrograms'
+import CompletedWeeks from './pages/CompletedWeeks'
+import CompletedWeek from './pages/CompletedWeek'
+import CompletedDay from './pages/CompletedDay'
 
 function App() {
+
   return (
     <div className="App">
       <Router>
-        <Header />
         <Routes>
-            <Route exact path='/' element={<Home />} />
+          <Route path='/' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='home' element={<Home />} />
+            <Route path='workout-schedules/:programId' element={<CompletedWeeks />} />
+            <Route path='workout-schedules/:programId/:weekNumber' element={<CompletedWeek />} />
+            {/* <Route path=':programay' element={<CompletedDay />} /> */}
+            <Route path='*' element={<NoMatch />} />
+            <Route path='program-schedules' element={<CompletedPrograms />} />
             <Route exact path='/create' element={<Create />} />
             <Route exact path='/current' element={<Current />} />  
-            <Route exact path='/completed' element={<Completed />} />
+          </Route>
+    
         </Routes>
       </Router>
     </div>
-  );
+  )
 }
 
 export default App

@@ -13,19 +13,13 @@
   }
 }
 
-.heading {
-  font-size: x-large;
-  padding: 2em;
-}
-
-.nav > ul {
+.nav {
   display: flex;
   list-style-type: none;
   flex-direction: row;
   justify-content: space-evenly;
+  text-decoration: none;
 }
-
-
 
 .App-header {
   background-color: #282c34;

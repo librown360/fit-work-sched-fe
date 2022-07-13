@@ -4,7 +4,7 @@ function Create() {
 
     return(
         <div>
-            <h2>Create Programs and Workouts</h2>
+            <h3>Create Programs</h3>
             {/* <Outlet /> */}
         </div>
     )

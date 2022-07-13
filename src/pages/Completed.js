@@ -1,12 +1,18 @@
-import React from 'react'
+// import { Routes, Route, Outlet } from 'react-router-dom'
+// import CompletedPrograms from './CompletedPrograms'
 
-function Completed() {
+// function Completed(programs) {
 
-    return(
-        <div>
-            <h2>Completed Programs / Workouts</h2>
-        </div>
-    )
-}
+//     return(
+//         <div>
+//             <h2>Completed Programs / Workouts</h2>
+//             <Routes>
+//                 <Route index element={<CompletedPrograms programs={programs} />} />
+//             </Routes>
 
-export default Completed
+//             <Outlet />
+//         </div>
+//     )
+// }
+
+// export default Completed
