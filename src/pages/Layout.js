@@ -11,10 +11,12 @@ function Layout() {
             <nav style={{ 
                     borderBottom: 'solid 2px',
                     padding: '1em',
-                    fontSize: 'x-large'
+                    fontSize: 'x-large',
+                    textAlign: 'center'
                 }}>
         
-                <NavLink to='/home' style={{style, textDecoration: 'none'}}>
+                <NavLink to='/home' 
+                    style={{style, textDecoration: 'none'}}>
                     Home
                 </NavLink>
                 

@@ -5,13 +5,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './pages/Layout'
 import Home from './pages/Home'
 import NoMatch from './pages/NoMatch'
-import Create from './pages/Create'
+import Create from './pages/CreateProgram'
 import Current from './pages/Current'
 import Completed from './pages/Completed'
 import CompletedPrograms from './pages/CompletedPrograms'
 import CompletedWeeks from './pages/CompletedWeeks'
 import CompletedWeek from './pages/CompletedWeek'
 import CompletedDay from './pages/CompletedDay'
+import CreateProgram from './pages/CreateProgram'
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
             {/* <Route path=':programay' element={<CompletedDay />} /> */}
             <Route path='*' element={<NoMatch />} />
             <Route path='program-schedules' element={<CompletedPrograms />} />
-            <Route exact path='/create' element={<Create />} />
+            <Route exact path='/create' element={<CreateProgram />} />
             <Route exact path='/current' element={<Current />} />  
           </Route>
     
