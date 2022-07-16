@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 
-function CompletedPrograms() {
+function CurrentProgramList() {
 
     const [programs, setPrograms] = useState([])
 
@@ -16,15 +16,15 @@ function CompletedPrograms() {
     }, [])
 
     // console.log(Object.values(programs))
-    // filter for completed programs list
-    let completedPrograms = programs.filter(program => program.complete === true)
-    
-    // console.log(completedPrograms)
+    // filter for current programs list
+    let currentPrograms = programs.filter(program => program.complete === false)
+
+    // console.log(currentPrograms)
     // format the data
-    let formatData = completedPrograms.map((program) => {
+    let formatData = currentPrograms.map((program) => {
         return (
             <tr key={program.id}>
-                <td><Link to={`../completed-workouts/${program.id}`}>
+                <td><Link to={`../current-workouts/${program.id}`}>
                     {program.id}</Link></td>
                 <td>{program.start_date}</td>
                 <td>{program.end_date}</td>
@@ -33,9 +33,9 @@ function CompletedPrograms() {
         )
     })
 
-    return (
+    return(
         <div>
-            <h3>Completed Program Schedules</h3>
+            <h3>Current Program Schedules</h3>
             <Table striped bordered hover size='sm'>
             <thead>
                 <tr>
@@ -55,4 +55,4 @@ function CompletedPrograms() {
     )
 }
 
-export default CompletedPrograms
+export default CurrentProgramList
