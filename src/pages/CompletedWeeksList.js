@@ -3,14 +3,14 @@ import { Link, useParams } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 
 
-function CompletedWeeks() {
+function CompletedWeeksList() {
 
     const [workouts, setWorkouts] = useState([])
     const { programId } = useParams()
 
     useEffect(() => {
         const getWorkouts = async () => {
-            const response = await fetch(`http://localhost:3001/workout-schedules/${programId}`)
+            const response = await fetch(`http://localhost:3001/workout-schedule/${programId}`)
             const resWorkouts = await response.json()
             setWorkouts(resWorkouts)
         }
@@ -27,23 +27,17 @@ function CompletedWeeks() {
     // format the data
     let formatWeeks = workouts.map((workout) => {
         return (
-            <Table striped bordered hover size='sm' key={workout.id}>
-                <thead>
-                    <tr>
-                        <th>Week #</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                    </tr>
-                </thead>
+            <>
                 <tbody>
                     <tr>
-                        <td ><Link to={`${workout.week_number}`}>
+                        <td><Link to={`${workout.week_number}`}>
                             {workout.week_number}</Link></td>
                         <td>{workout.start_date}</td>
                         <td>{workout.end_date}</td>
                     </tr>
                 </tbody>
-            </Table>
+            </>
+            
         )
     })
 
@@ -51,11 +45,18 @@ function CompletedWeeks() {
         <>
             <h3>Completed Program</h3>
             <h3>Weeks List</h3>
-            {formatWeeks}
+            <Table bordered hover size='sm'>
+                <thead>
+                    <tr>
+                        <th>Week #</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                {formatWeeks}
+            </Table>
         </>
-        
-        
     )
 }
 
-export default CompletedWeeks
+export default CompletedWeeksList

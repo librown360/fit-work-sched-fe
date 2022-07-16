@@ -16,7 +16,11 @@ function Layout() {
                 }}>
         
                 <NavLink to='/home' 
-                    style={{style, textDecoration: 'none'}}>
+                    style={{
+                        style, 
+                        textDecoration: 'none',
+                        fontSize: '30px'
+                    }}>
                     Home
                 </NavLink>
                 

@@ -23,6 +23,22 @@ h3 {
   text-decoration: none;
 }
 
+.card-btn {
+  margin: 20px 15px 20px 20px;
+  padding: 4px;
+}
+
+.card-tbl {
+  margin-top: 2em;
+}
+
+thead, td {
+  text-align: center;
+}
+
+.add-program {
+  margin: 1em;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

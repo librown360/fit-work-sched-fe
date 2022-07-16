@@ -30,20 +30,20 @@ function CreateProgram() {
         }
         setValidated(true)
         // go to create workout page
-        navigate('../create-workout-schedule')
+        navigate(`../show-schedule`, { replace: true })
         // form validation successful; update table
-        await fetch(`http://localhost:3001/program-schedules`, {
+        await fetch(`http://localhost:3001/program-schedule`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(program)
-        })      
+        })
     }
 
     return(
-        <div>
-            <h3>Create Program Schedule</h3>
+        <div className='add-program'>
+            <h3>Add Program Schedule</h3>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className='mb-3'>
                     <Form.Group as={Col} controlId='formGridNumberOfWeeks'>
@@ -103,8 +103,8 @@ function CreateProgram() {
                         />
                     </Form.Group>
                 </Row>
-                <Button variant='primary' type='submit'>
-                    Create
+                <Button variant='success' type='submit'>
+                    Add
                 </Button>
             </Form>
         </div>

@@ -5,9 +5,9 @@ function Home() {
     return (
         <div>
             <nav className='nav'>
-                <Link to='/create-program'>Create Program</Link>
-                <Link to='/current-program'>Current Program</Link>
-                <Link to='/completed-programs'>Completed Programs</Link>
+                <Link to='/create-schedule'>Create Program</Link>
+                <Link to='/current-schedule'>Current Program</Link>
+                <Link to='/completed-schedules'>Completed Programs</Link>
             </nav>
         </div>
     )

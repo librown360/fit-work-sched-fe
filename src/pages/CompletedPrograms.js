@@ -8,7 +8,7 @@ function CompletedPrograms() {
 
     useEffect(() => {
         const getPrograms = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedules`)
+            const response = await fetch(`http://localhost:3001/program-schedule`)
             const resPrograms = await response.json()
             setPrograms(resPrograms)      
         }
@@ -35,7 +35,7 @@ function CompletedPrograms() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><Link to={`../workout-schedules/${program.id}`}>
+                        <td><Link to={`../workout-schedule/${program.id}`}>
                             {program.id}</Link></td>
                         <td>{program.start_date}</td>
                         <td>{program.end_date}</td>
