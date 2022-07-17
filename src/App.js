@@ -6,8 +6,12 @@ import Layout from './pages/Layout'
 import Home from './pages/Home'
 import NoMatch from './pages/NoMatch'
 import CompletedPrograms from './pages/CompletedPrograms'
-import CurrentProgramList from './pages/CurrentProgramList'
 import CreateProgram from './pages/CreateProgram'
+import CompletedWeeks from './pages/CompletedWeeks'
+import CompletedWeek from './pages/CompletedWeek'
+import CurrentPrograms from './pages/CurrentPrograms'
+import CurrentWeeks from './pages/CurrentWeeks'
+import CurrentWeek from './pages/CurrentWeek'
 
 
 function App() {
@@ -20,7 +24,11 @@ function App() {
             <Route index element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='completed-schedules' element={<CompletedPrograms />} />
-            <Route path='current-schedule' element={<CurrentProgramList /> } />
+            <Route path='completed-weeks/:programId' element={<CompletedWeeks />} />
+            <Route path='completed-week/:programId/:weekNumber' element={<CompletedWeek />} />
+            <Route path='current-schedules' element={<CurrentPrograms /> } />
+            <Route path='current-weeks/:programId' element={<CurrentWeeks />} />
+            <Route path='current-week/:programId/:weekNumber' element={<CurrentWeek />} />
             <Route path='create-schedule' element={<CreateProgram />} />
             <Route path='*' element={<NoMatch />} />
           </Route>

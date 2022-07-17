@@ -24,7 +24,7 @@ function CompletedPrograms() {
     let formatData = completedPrograms.map((program) => {
         return (
             <tr key={program.id}>
-                <td><Link to={`../completed-workouts/${program.id}`}>
+                <td><Link to={`../completed-weeks/${program.id}`}>
                     {program.id}</Link></td>
                 <td>{program.start_date}</td>
                 <td>{program.end_date}</td>
@@ -35,7 +35,7 @@ function CompletedPrograms() {
 
     return (
         <div>
-            <h3>Completed Program Schedules</h3>
+            <h3>Completed Schedules</h3>
             <Table striped bordered hover size='sm'>
             <thead>
                 <tr>

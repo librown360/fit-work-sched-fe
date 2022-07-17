@@ -6,7 +6,7 @@ function Home() {
         <div>
             <nav className='nav'>
                 <Link to='/create-schedule'>Create Schedule</Link>
-                <Link to='/current-schedule'>Current Schedule</Link>
+                <Link to='/current-schedules'>Current Schedule</Link>
                 <Link to='/completed-schedules'>Completed Schedules</Link>
             </nav>
         </div>

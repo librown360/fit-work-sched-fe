@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 
 
-function CompletedWeek() {
+function CurrentWeek() {
 
     const [week, setWeek] = useState([])
     const { programId, weekNumber } = useParams()
@@ -36,7 +36,7 @@ function CompletedWeek() {
         let formatDays = days.map((day) => {
             <tr>
                 <td key={day.id}>
-                <Link to={`completed-day/${day.day_of_week}`}>{day.day_of_week}</Link>
+                <Link to={`current-day/${day.day_of_week}`}>{day.day_of_week}</Link>
                 </td>
             </tr>
             
@@ -71,4 +71,4 @@ function CompletedWeek() {
     )
 }
 
-export default CompletedWeek
+export default CurrentWeek

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 
-function CurrentProgramList() {
+function CurrentPrograms() {
 
     const [programs, setPrograms] = useState([])
 
@@ -24,7 +24,7 @@ function CurrentProgramList() {
     let formatData = currentPrograms.map((program) => {
         return (
             <tr key={program.id}>
-                <td><Link to={`../current-workouts/${program.id}`}>
+                <td><Link to={`../current-weeks/${program.id}`}>
                     {program.id}</Link></td>
                 <td>{program.start_date}</td>
                 <td>{program.end_date}</td>
@@ -55,4 +55,4 @@ function CurrentProgramList() {
     )
 }
 
-export default CurrentProgramList
+export default CurrentPrograms
