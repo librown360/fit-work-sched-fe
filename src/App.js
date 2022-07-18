@@ -14,6 +14,7 @@ import CurrentWeeks from './pages/CurrentWeeks'
 import CurrentWeek from './pages/CurrentWeek'
 import CreateProgram from './pages/CreateProgram'
 import NewSchedule from './pages/NewSchedule'
+import EditProgram from './pages/EditProgram'
 
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
             <Route path='current-weeks/:programId' element={<CurrentWeeks />} />
             <Route path='current-week/:programId/:weekNumber' element={<CurrentWeek />} />
             <Route path='create-schedule' element={<CreateProgram />} />
-            <Route path='create-schedule/:id' element={<NewSchedule />} />
+            <Route path='create-schedule/:programId' element={<NewSchedule />} />
+            <Route path='edit-schedule/:programId' element={<EditProgram />} />
             <Route path='*' element={<NoMatch />} />
           </Route>
         </Routes>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -9,18 +9,23 @@ import Table from 'react-bootstrap/Table'
 function NewSchedule() {
     
     const [schedule, setSchedule] = useState([])
-    const { id } = useParams()
+    const { programId } = useParams()
+    const navigate = useNavigate()
     
     useEffect(() => {
         const getSchedule = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule/${id}`)
+            const response = await fetch(`http://localhost:3001/program-schedule/${programId}`)
             const resSchedule = await response.json()
             setSchedule(resSchedule)
         }
         getSchedule()
-    },[id])
+    },[programId])
 
     // console.log(schedule)
+    // edit button event
+    function editSchedule() {
+        navigate(`../edit-schedule/${programId}`)
+    }
     
     return (
         <div>
@@ -45,8 +50,25 @@ function NewSchedule() {
                         <Card.Text as={Col}>{schedule.notes}</Card.Text>
                     </Row>
                     <Row className='mb-2'>
-                        <Button className='card-btn' as={Col} variant='primary' size='lg' type='submit'>Edit</Button>
-                        <Button className='card-btn' as={Col} variant='danger' size='lg' type='submit'>Delete</Button>
+                        <Button className='card-btn' 
+                            as={Col} 
+                            variant='primary' 
+                            size='lg' 
+                            type='submit'
+                            onClick={editSchedule}
+                        >
+                            Edit
+                        </Button>
+                        <Button 
+                            className='card-btn' 
+                            as={Col} 
+                            variant='danger' 
+                            size='lg' 
+                            type='submit'
+                            // onClick={deleteSchedule}
+                        >
+                            Delete
+                        </Button>
                     </Row>
                 </Card.Body>
             </Card>

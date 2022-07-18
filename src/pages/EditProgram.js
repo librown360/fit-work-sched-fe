@@ -1,27 +1,33 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import DisablePastDates from '../components/DisablePastDates'
 
-function CreateProgram() {
+function EditProgram() {
 
     const navigate = useNavigate()
-
+    const { programId } = useParams()
     const [validated, setValidated] = useState(false)
     const [program, setProgram] = useState({
         number_of_weeks: 0,
         start_date: '',
         end_date: '',
-        notes: '',
-        current: true,
-        complete: false,
-        new: true
+        notes: ''
     })
     
-    // create button event
+    useEffect(() => {
+        const getProgram = async () => {
+            const response = await fetch(`http://localhost:3001/program-schedule/${programId}`)
+            const resProgram = await response.json()
+            setProgram(resProgram)
+        }
+        getProgram()
+    }, [programId])
+    
+    // edit button event
     function handleSubmit(e) {
         // form validation
         const form = e.currentTarget
@@ -31,28 +37,30 @@ function CreateProgram() {
         }
         setValidated(true)
         // form validation successful; update table & get new id
-        const newSchedule = {
-            method: 'POST',
+        const editSchedule = {
+            method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(program)
         }
-        const createSchedule = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule`, newSchedule)
+        const updateSchedule = async () => {
+            const response = await fetch(`http://localhost:3001/program-schedule/${program.id}`, editSchedule)
             const resData = await response.json()
             const programId = resData.program_schedules.id
-            // go to new page to show schedule created
-            navigate(`../create-schedule/${programId}`)
+            // go back to show updated schedule
+            navigate(`../create-schedule/${programId}`, {replace: true})
 
             return resData
-
         }
-        createSchedule()
+        updateSchedule()
     }
-        
+    // cancel button event
+    function cancelEdit() {
+        navigate(`../create-schedule/${programId}`, {replace: true})
+    }
 
-    return(
+    return (
         <div className='add-program'>
-            <h3>Create Schedule</h3>
+            <h3>Update Schedule</h3>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className='mb-3'>
                     <Form.Group as={Col} controlId='formGridNumberOfWeeks'>
@@ -112,12 +120,21 @@ function CreateProgram() {
                         />
                     </Form.Group>
                 </Row>
-                <Button variant='success' type='submit'>
-                    Create
-                </Button>
+                <Row  className='mb-3'>
+                    <Col>
+                        <Button variant='success' type='submit'>
+                            Update
+                        </Button>
+                    </Col>
+                    <Col className='edit-btn'>
+                        <Button variant='danger' onClick={cancelEdit}>
+                            Cancel
+                        </Button>
+                    </Col>
+                </Row>
             </Form>
         </div>
     )
 }
 
-export default CreateProgram
+export default EditProgram
