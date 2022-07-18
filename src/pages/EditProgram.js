@@ -8,7 +8,7 @@ import DisablePastDates from '../components/DisablePastDates'
 
 function EditProgram() {
 
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const { programId } = useParams()
     const [validated, setValidated] = useState(false)
     const [program, setProgram] = useState({

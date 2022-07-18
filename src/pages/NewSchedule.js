@@ -26,6 +26,13 @@ function NewSchedule() {
     function editSchedule() {
         navigate(`../edit-schedule/${programId}`)
     }
+    // delete button event
+    async function deleteSchedule(){
+        await fetch(`http://localhost:3001/program-schedule/${programId}`, {
+            method: 'DELETE'
+        })
+        navigate('/')
+    }
     
     return (
         <div>
@@ -65,7 +72,7 @@ function NewSchedule() {
                             variant='danger' 
                             size='lg' 
                             type='submit'
-                            // onClick={deleteSchedule}
+                            onClick={deleteSchedule}
                         >
                             Delete
                         </Button>
