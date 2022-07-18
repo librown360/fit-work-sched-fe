@@ -8,7 +8,7 @@ function CurrentPrograms() {
 
     useEffect(() => {
         const getPrograms = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule`)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule`)
             const resPrograms = await response.json()
             setPrograms(resPrograms)      
         }

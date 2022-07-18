@@ -20,7 +20,7 @@ function EditProgram() {
     
     useEffect(() => {
         const getProgram = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule/${programId}`)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule/${programId}`)
             const resProgram = await response.json()
             setProgram(resProgram)
         }
@@ -43,7 +43,7 @@ function EditProgram() {
             body: JSON.stringify(program)
         }
         const updateSchedule = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule/${program.id}`, editSchedule)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule/${program.id}`, editSchedule)
             const resData = await response.json()
             // const programId = resData.program_schedules.id
             // go back to show updated schedule

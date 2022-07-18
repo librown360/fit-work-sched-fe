@@ -37,7 +37,7 @@ function CreateProgram() {
             body: JSON.stringify(program)
         }
         const createSchedule = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule`, newSchedule)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule`, newSchedule)
             const resData = await response.json()
             const programId = resData.program_schedules.id
             // go to new page to show schedule created

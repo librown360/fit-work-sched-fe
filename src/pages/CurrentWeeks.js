@@ -10,7 +10,7 @@ function CurrentWeeks() {
 
     useEffect(() => {
         const getWeeks = async () => {
-            const response = await fetch(`http://localhost:3001/workout-schedule/${programId}`)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/workout-schedule/${programId}`)
             const resWeeks = await response.json()
             setWeeks(resWeeks)
         }

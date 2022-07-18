@@ -14,7 +14,7 @@ function NewSchedule() {
     
     useEffect(() => {
         const getSchedule = async () => {
-            const response = await fetch(`http://localhost:3001/program-schedule/${programId}`)
+            const response = await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule/${programId}`)
             const resSchedule = await response.json()
             setSchedule(resSchedule)
         }
@@ -28,7 +28,7 @@ function NewSchedule() {
     }
     // delete button event
     async function deleteSchedule(){
-        await fetch(`http://localhost:3001/program-schedule/${programId}`, {
+        await fetch(`https://stark-beyond-33681.herokuapp.com/program-schedule/${programId}`, {
             method: 'DELETE'
         })
         navigate('/')
