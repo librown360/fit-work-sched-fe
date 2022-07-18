@@ -35,7 +35,7 @@ function CurrentPrograms() {
 
     return(
         <div>
-            <h3>Current Program Schedules</h3>
+            <h3>Current Schedules</h3>
             <Table striped bordered hover size='sm'>
             <thead>
                 <tr>

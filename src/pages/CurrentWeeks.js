@@ -32,7 +32,7 @@ function CurrentWeeks() {
 
     return(
         <div>
-            <h3>Completed Program #{programId}</h3>
+            <h3>Current Program #{programId}</h3>
             <h3>Weeks List</h3>
             <Table striped bordered hover size='sm'>
                 <thead>

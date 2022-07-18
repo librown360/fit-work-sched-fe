@@ -57,7 +57,7 @@ function CompletedWeek() {
     console.log(formatData())
     return (
         <div>
-            <h3>Completed Week</h3>
+            <h3>Completed Week #{weekNumber}</h3>
             <Table striped bordered hover size='sm'>
                 <thead>
                     <tr>
