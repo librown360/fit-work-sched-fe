@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
-import Table from 'react-bootstrap/Table'
+import AddWorkout from './AddWorkout'
 
 function NewSchedule() {
     
@@ -80,17 +80,7 @@ function NewSchedule() {
                 </Card.Body>
             </Card>
             <div>
-                <Table striped bordered hover size='sm'>
-                    <thead>
-                        <tr>
-                            <th>
-                                <Button className='tbl-btn' variant='success'>
-                                    Create Workout Schedule
-                                </Button>
-                            </th>
-                        </tr>
-                    </thead>
-                </Table>
+                <AddWorkout schedule={schedule} />
             </div>
         </div>
     )

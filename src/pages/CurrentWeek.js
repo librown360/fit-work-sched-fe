@@ -57,7 +57,7 @@ function CurrentWeek() {
     console.log(formatData())
     return (
         <div>
-            <h3>Current Week #{weekNumber}</h3>
+            <h3>Week #{weekNumber}</h3>
             <Table striped bordered hover size='sm'>
                 <thead>
                     <tr>

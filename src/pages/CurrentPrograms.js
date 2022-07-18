@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 
 function CurrentPrograms() {
@@ -51,6 +51,7 @@ function CurrentPrograms() {
             </Table>
             {/* change below syntax to display child data */}
             {/* <CompletedProgramList data={completedPrograms} /> */}
+            <Outlet />
         </div>
     )
 }

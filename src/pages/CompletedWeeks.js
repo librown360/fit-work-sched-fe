@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 function CompletedWeeks() {
 
+    const navigate = useNavigate()
     const [weeks, setWeeks] = useState([])
     const { programId } = useParams()
 
@@ -47,6 +49,7 @@ function CompletedWeeks() {
                     {formatData}
                 </tbody>
             </Table>
+            <Button onClick={() => navigate(-1)}>Go Back</Button>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 function CurrentWeeks() {
 
@@ -46,6 +47,7 @@ function CurrentWeeks() {
                     {formatData}
                 </tbody>
             </Table>
+            
         </div>
     )
 }
