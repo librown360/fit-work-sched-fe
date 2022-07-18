@@ -3,6 +3,7 @@
 } */
 h3 {
   text-align: center;
+  margin-bottom: 1em;
 }
 .App-logo {
   height: 40vmin;
@@ -22,6 +23,11 @@ h3 {
   justify-content: space-evenly;
   text-decoration: none;
 }
+
+.main-home {
+  margin-top: 2em;
+}
+
 
 .card-btn {
   margin: 20px 15px 20px 20px;

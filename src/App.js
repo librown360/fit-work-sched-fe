@@ -10,7 +10,7 @@ import CompletedPrograms from './pages/CompletedPrograms'
 import CompletedWeeks from './pages/CompletedWeeks'
 import CompletedWeek from './pages/CompletedWeek'
 import CurrentPrograms from './pages/CurrentPrograms'
-import CurrentWeeks from './pages/CurrentWeeks'
+import CurrentWeeks from './pages/CompletedWeeks'
 import CurrentWeek from './pages/CurrentWeek'
 import CreateProgram from './pages/CreateProgram'
 import NewSchedule from './pages/NewSchedule'
@@ -29,9 +29,11 @@ function App() {
             <Route path='completed-schedules' element={<CompletedPrograms />} />
             <Route path='completed-weeks/:programId' element={<CompletedWeeks />} />
             <Route path='completed-week/:programId/:weekNumber' element={<CompletedWeek />} />
+
             <Route path='current-schedules' element={<CurrentPrograms /> } />
             <Route path='current-weeks/:programId' element={<CurrentWeeks />} />
             <Route path='current-week/:programId/:weekNumber' element={<CurrentWeek />} />
+
             <Route path='create-schedule' element={<CreateProgram />} />
             <Route path='create-schedule/:programId' element={<NewSchedule />} />
             <Route path='edit-schedule/:programId' element={<EditProgram />} />
@@ -43,6 +45,5 @@ function App() {
   )
 }
 
-// function 
 
 export default App
