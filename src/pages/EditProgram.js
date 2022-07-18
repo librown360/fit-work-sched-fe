@@ -8,7 +8,7 @@ import DisablePastDates from '../components/DisablePastDates'
 
 function EditProgram() {
 
-    const navigate = useNavigate()
+    let navigate = useNavigate()
     const { programId } = useParams()
     const [validated, setValidated] = useState(false)
     const [program, setProgram] = useState({
@@ -28,7 +28,7 @@ function EditProgram() {
     }, [programId])
     
     // edit button event
-    function handleSubmit(e) {
+    function submitEdit(e) {
         // form validation
         const form = e.currentTarget
         if (form.checkValidity() === false) {
@@ -45,9 +45,9 @@ function EditProgram() {
         const updateSchedule = async () => {
             const response = await fetch(`http://localhost:3001/program-schedule/${program.id}`, editSchedule)
             const resData = await response.json()
-            const programId = resData.program_schedules.id
+            // const programId = resData.program_schedules.id
             // go back to show updated schedule
-            navigate(`../create-schedule/${programId}`, {replace: true})
+            navigate(`../create-schedule/${program.id}`, {replace: true})
 
             return resData
         }
@@ -61,7 +61,7 @@ function EditProgram() {
     return (
         <div className='add-program'>
             <h3>Update Schedule</h3>
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form noValidate validated={validated}>
                 <Row className='mb-3'>
                     <Form.Group as={Col} controlId='formGridNumberOfWeeks'>
                         <Form.Label>Number of weeks:</Form.Label>
@@ -122,7 +122,7 @@ function EditProgram() {
                 </Row>
                 <Row  className='mb-3'>
                     <Col>
-                        <Button variant='success' type='submit'>
+                        <Button variant='success' onClick={submitEdit}>
                             Update
                         </Button>
                     </Col>
