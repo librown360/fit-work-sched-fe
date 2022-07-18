@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Table from 'react-bootstrap/Table'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 function AddWorkout({ schedule }) {
 
-    const navigate = useNavigate()
-    const [workoutList, setWorkoutList] = useState('')
-    const [programList, setProgramList] = useState('')
-    const [programId, setProgamId] = useState('')
-    const [workoutName, setWorkoutName] = useState('')
+    // const navigate = useNavigate()
+    // const [workoutList, setWorkoutList] = useState('')
+    // const [programList, setProgramList] = useState('')
+    // const [programId, setProgamId] = useState('')
+    // const [workoutName, setWorkoutName] = useState('')
 
     // function workoutsList() {
 

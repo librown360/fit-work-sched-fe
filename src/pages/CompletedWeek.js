@@ -36,18 +36,21 @@ function CompletedWeek() {
     // format the days
     function formatData() {
         let formatDays = days.map((day) => {
-            <tr>
-                <td key={day.id}>
-                <Link to={`completed-day/${day.day_of_week}`}>{day.day_of_week}</Link>
-                </td>
-            </tr>
-            
+            return (
+                <tr>
+                    <td key={day.id}>
+                    <Link to={`completed-day/${day.day_of_week}`}>{day.day_of_week}</Link>
+                    </td>
+                </tr>
+            )
         })
         console.log(formatDays)
         let formatWorkouts = workouts.map((workout) => {
-            <tr>
-                <td key={workout.id}>{workout.workout_name}</td>
-            </tr>    
+            return (
+                <tr>
+                    <td key={workout.id}>{workout.workout_name}</td>
+                </tr>
+            )
         })
         return (
             <tbody>
